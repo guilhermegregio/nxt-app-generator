@@ -30,7 +30,9 @@ def login():
     auth0 = get_auth0_session()
     uri, state = auth0.create_authorization_url(AUTH0_AUTHORIZE_URL)
     st.session_state['oauth_state'] = state
-    st.link_button("🔐 Login com Auth0", uri)
+
+    st.markdown(
+        f"<a href='{uri}' target='_self'>🔐 Login Nxt Platform</a>", unsafe_allow_html=True)
 
 
 def logout():
